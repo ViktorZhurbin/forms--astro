@@ -1,6 +1,7 @@
 import { Button } from "@mantine/core";
 import { IconEye } from "@tabler/icons-react";
 import { useSelectedBlockId } from "../../hooks/useSelectedBlockId";
+import { navigate } from "astro:transitions/client";
 
 export const PreviewButton = () => {
 	const selectedBlockId = useSelectedBlockId();
@@ -10,16 +11,10 @@ export const PreviewButton = () => {
 			variant="default"
 			color="dark.7"
 			leftSection={<IconEye />}
-			component="a"
-			href="/forms/1/preview"
 			onClick={() => {
-				history.pushState(
-					{
-						state: { blockId: selectedBlockId },
-					},
-					"",
-					"/forms/1/preview"
-				);
+				navigate("/forms/1/preview", {
+					state: { blockId: selectedBlockId },
+				});
 			}}
 		>
 			Preview
