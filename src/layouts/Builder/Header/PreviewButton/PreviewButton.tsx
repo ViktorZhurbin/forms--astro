@@ -10,7 +10,8 @@ export const PreviewButton = () => {
 			variant="default"
 			color="dark.7"
 			leftSection={<IconEye />}
-			// component="a"
+			component="a"
+			href="/forms/1/preview"
 			onClick={() => {
 				history.pushState(
 					{

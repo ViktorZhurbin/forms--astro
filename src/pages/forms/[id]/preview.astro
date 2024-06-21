@@ -1,16 +1,13 @@
 ---
 import "@mantine/core/styles.css";
 import "@/styles/main.css";
-import { Admin } from '@/layouts/Admin/Admin';
-import type { FormType } from "@/constants/forms";
 
-const responseJson = await fetch(new URL("/api/forms", Astro.url));
-const response = await responseJson.json() as { data: FormType[]};
+import { FormPreview } from "@/layouts/FormPreview/FormPreview";
 
+const { id } = Astro.params;
 const props = {
-	count: 0,
-	forms: response.data,
-};
+	formId: id
+}
 
 // Full Astro Component Syntax:
 // https://docs.astro.build/basics/astro-components/
@@ -26,7 +23,7 @@ const props = {
 
 	<body>
 		<main>
-			<Admin {...props} client:only="react" />
+			<FormPreview {...props} client:only="react" />
 		</main>
 	</body>
 </html>

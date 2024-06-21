@@ -1,5 +1,5 @@
 import { Center } from "@mantine/core";
-import { Question } from "../../Question/Question";
+import { Question } from "../../../components/Question/Question";
 import { useSelectedBlockId } from "../hooks/useSelectedBlockId";
 
 export const Main = () => {

@@ -17,7 +17,7 @@ interface QuestionProps {
 
 const getComponentByQuestion = (
 	question: QuestionType,
-	readOnly: QuestionProps["readOnly"],
+	readOnly: QuestionProps["readOnly"]
 ) => {
 	switch (question.type) {
 		case QuestionTypes.YesNo:
