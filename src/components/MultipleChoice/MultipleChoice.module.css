@@ -1,0 +1,9 @@
+.wrapper {
+	display: grid;
+	align-items: start;
+	gap: 8px;
+}
+
+.textInput {
+	min-width: 200px;
+}

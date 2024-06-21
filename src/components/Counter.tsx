@@ -2,11 +2,9 @@ import { useState } from "react";
 import "./Counter.css";
 
 export default function Counter({
-	children,
 	count: initialCount,
 	forms,
 }: {
-	children: JSX.Element;
 	count: number;
 	forms: any;
 }) {
@@ -26,7 +24,6 @@ export default function Counter({
 				<pre>{count}</pre>
 				<button onClick={add}>+</button>
 			</div>
-			<div className="counter-message">{children}</div>
 		</>
 	);
 }

@@ -1,10 +1,13 @@
 ---
-// Component Imports
-import Counter from '../components/Counter';
+import "@mantine/core/styles.css";
+import "../styles/main.css";
+import { Admin } from '@/components/admin/Admin';
+import type { FormType } from "@/constants/forms";
 
 const responseJson = await fetch(new URL("/api/forms", Astro.url));
-const response = await responseJson.json();
-const someProps = {
+const response = await responseJson.json() as { data: FormType[]};
+
+const props = {
 	count: 0,
 	forms: response.data,
 };
@@ -19,22 +22,11 @@ const someProps = {
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<style>
-			html,
-			body {
-				font-family: system-ui;
-				margin: 0;
-			}
-			body {
-				padding: 2rem;
-			}
-		</style>
 	</head>
+
 	<body>
 		<main>
-			<Counter {...someProps} client:load>
-				<h1>Hello, React!</h1>
-			</Counter>
+			<Admin {...props} client:visible />
 		</main>
 	</body>
 </html>
