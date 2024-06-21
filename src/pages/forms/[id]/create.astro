@@ -1,7 +1,8 @@
 ---
 import "@mantine/core/styles.css";
 import "@/styles/main.css";
-import { Admin } from '@/components/admin/Admin';
+
+import { Builder } from '@/components/builder/Builder';
 import type { FormType } from "@/constants/forms";
 
 const responseJson = await fetch(new URL("/api/forms", Astro.url));
@@ -26,7 +27,7 @@ const props = {
 
 	<body>
 		<main>
-			<Admin {...props} client:visible />
+			<Builder {...props} client:only="react" />
 		</main>
 	</body>
 </html>
