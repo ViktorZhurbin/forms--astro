@@ -1,9 +1,9 @@
 import { AppShell, ScrollArea } from "@mantine/core";
+import { ThemeProvider } from "~/contexts/ThemeProvider/ThemeProvider";
 import { Header } from "./Header/Header";
 import { Main } from "./Main/Main";
 import { NavQuestions } from "./Navbar/NavQuestions/NavQuestions";
 import { NavThankYou } from "./Navbar/NavThankYou/NavThankYou";
-import { ThemeProvider } from "~/contexts/ThemeProvider/ThemeProvider";
 
 export const Builder = () => {
 	return (

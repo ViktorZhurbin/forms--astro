@@ -1,6 +1,6 @@
 import { Stack } from "@mantine/core";
-import { type QuestionType, QuestionTypes } from "../../constants/questions";
-import { formFields } from "../../mocks/formQuestions";
+import { type QuestionType, QuestionTypes } from "~/constants/questions";
+import { formFields } from "~/mocks/formQuestions";
 import { EditableButton } from "../EditableButton/EditableButton";
 import { MultipleChoice } from "../MultipleChoice/MultipleChoice";
 import { ShortText } from "../ShortText/ShortText";
@@ -17,7 +17,7 @@ interface QuestionProps {
 
 const getComponentByQuestion = (
 	question: QuestionType,
-	readOnly: QuestionProps["readOnly"]
+	readOnly: QuestionProps["readOnly"],
 ) => {
 	switch (question.type) {
 		case QuestionTypes.YesNo:

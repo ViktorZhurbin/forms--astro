@@ -2,13 +2,13 @@
 import "@mantine/core/styles.css";
 import "~/styles/main.css";
 
-import { FormPreview } from "~/layouts/FormPreview/FormPreview";
 import CommonHead from "~/components/CommonHead/CommonHead.astro";
+import { FormPreview } from "~/layouts/FormPreview/FormPreview";
 
 const { id } = Astro.params;
 const props = {
-	formId: id
-}
+	formId: id,
+};
 
 // Full Astro Component Syntax:
 // https://docs.astro.build/basics/astro-components/

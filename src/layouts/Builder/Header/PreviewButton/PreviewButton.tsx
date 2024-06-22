@@ -1,7 +1,7 @@
+import { navigate } from "astro:transitions/client";
 import { Button } from "@mantine/core";
 import { IconEye } from "@tabler/icons-react";
 import { useSelectedBlockId } from "../../hooks/useSelectedBlockId";
-import { navigate } from "astro:transitions/client";
 
 export const PreviewButton = () => {
 	const selectedBlockId = useSelectedBlockId();

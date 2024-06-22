@@ -1,8 +1,8 @@
 import { AppShell } from "@mantine/core";
-import { Header } from "./Header/Header";
-import { Main } from "./Main/Main";
 import type { FormType } from "~/constants/forms";
 import { ThemeProvider } from "~/contexts/ThemeProvider/ThemeProvider";
+import { Header } from "./Header/Header";
+import { Main } from "./Main/Main";
 
 export const Admin = ({ forms }: { forms: FormType[] }) => {
 	return (
