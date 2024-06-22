@@ -1,5 +1,6 @@
 import { useEffect, useMemo } from "react";
 import { useSearch } from "wouter";
+import { navigate } from "wouter/use-browser-location";
 import { SearchParams } from "~/constants/location";
 import { formFields } from "~/mocks/formQuestions";
 import type { SelectedBlockId } from "../types";
@@ -25,7 +26,8 @@ export const useSelectedBlockId = () => {
 		const defaultBlockId = formFields[0].id;
 
 		urlSearchParams.set(SearchParams.BLOCK_ID, defaultBlockId);
-		history.replaceState({}, "", `?${urlSearchParams.toString()}`);
+
+		navigate(`?${urlSearchParams.toString()}`, { replace: true });
 	}, []);
 
 	return selectedBlockId;

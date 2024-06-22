@@ -1,4 +1,5 @@
 import { type FormType, FormsLayout } from "~/constants/forms";
+import { Routes } from "~/constants/location";
 import { GridView } from "./GridView/GridView";
 import { ListView } from "./ListView/ListView";
 
@@ -10,10 +11,5 @@ type FormsViewProps = {
 export const FormsView = ({ view, forms }: FormsViewProps) => {
 	const ViewComponent = view === FormsLayout.List ? ListView : GridView;
 
-	return (
-		<ViewComponent
-			forms={forms}
-			getHref={(id: FormType["id"]) => `/forms/${id}/create`}
-		/>
-	);
+	return <ViewComponent forms={forms} getHref={Routes.getFormPath} />;
 };

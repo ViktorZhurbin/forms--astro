@@ -3,15 +3,19 @@ import "@mantine/core/styles.css";
 import "~/styles/main.css";
 
 import CommonHead from "~/components/CommonHead/CommonHead.astro";
-import { FormPreview } from "~/layouts/FormPreview/FormPreview";
+import { SearchParams } from "~/constants/location";
+import { Form } from "~/layouts/Form/Form";
 
 const { id } = Astro.params;
+
+console.log(Astro.params);
+
+const { searchParams } = Astro.url;
+
 const props = {
 	formId: id,
+	isPreview: Boolean(searchParams.get(SearchParams.PREVIEW)),
 };
-
-// Full Astro Component Syntax:
-// https://docs.astro.build/basics/astro-components/
 ---
 
 <html lang="en">
@@ -21,7 +25,7 @@ const props = {
 
 	<body>
 		<main>
-			<FormPreview {...props} client:only="react" />
+			<Form {...props} client:only="react" />
 		</main>
 	</body>
 </html>

@@ -4,12 +4,12 @@ import { useState } from "react";
 import { FormFields } from "~/components/FormFields/FormFields";
 import { NavButtons } from "~/components/NavButtons/NavButtons";
 import type { FormType } from "~/constants/forms";
-import { SearchParams } from "~/constants/location";
+import { Routes, SearchParams } from "~/constants/location";
 import { ThemeProvider } from "~/contexts/ThemeProvider/ThemeProvider";
 import { formFields } from "~/mocks/formQuestions";
-import styles from "./FormPreview.module.css";
+import styles from "./Preview.module.css";
 
-export const FormPreview = ({ formId }: { formId?: FormType["id"] }) => {
+export const Preview = ({ formId }: { formId?: FormType["id"] }) => {
 	const [step, setStep] = useState(0);
 
 	const isFirstStep = step === 0;
@@ -31,15 +31,15 @@ export const FormPreview = ({ formId }: { formId?: FormType["id"] }) => {
 		console.log("submit");
 	};
 
-	const getHref = () => {
+	const getExitPreviewPath = () => {
 		if (formId) {
-			const blockId = history.state?.blockId;
-			const search = blockId ? `?${SearchParams.BLOCK_ID}=${blockId}` : "";
+			const url = new URL(window.location.href);
+			url.searchParams.delete(SearchParams.PREVIEW);
 
-			return `/forms/${formId}/create${search}`;
+			return `${url.pathname}${url.search}`;
 		}
 
-		return "/";
+		return Routes.ROOT;
 	};
 
 	return (
@@ -57,7 +57,7 @@ export const FormPreview = ({ formId }: { formId?: FormType["id"] }) => {
 					leftSection={<IconX />}
 					className={styles.exitButton}
 					component="a"
-					href={getHref()}
+					href={getExitPreviewPath()}
 				>
 					Exit preview
 				</Button>

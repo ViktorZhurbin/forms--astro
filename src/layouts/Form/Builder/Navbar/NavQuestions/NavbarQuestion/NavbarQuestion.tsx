@@ -1,5 +1,6 @@
 import { Button, Group, Text } from "@mantine/core";
 import { IconBan } from "@tabler/icons-react";
+import { navigate } from "wouter/use-browser-location";
 import { SearchParams } from "~/constants/location";
 import type { QuestionBaseType } from "~/constants/questions";
 import { clx } from "~/utils/classNames";
@@ -23,7 +24,7 @@ export const NavbarQuestion = ({
 		const urlSearchParams = new URLSearchParams(window.location.search);
 		urlSearchParams.set(SearchParams.BLOCK_ID, id);
 
-		history.pushState({}, "", `?${urlSearchParams.toString()}`);
+		navigate(`?${urlSearchParams.toString()}`);
 	};
 
 	const label = <Label group={group} order={order} title={title} />;
