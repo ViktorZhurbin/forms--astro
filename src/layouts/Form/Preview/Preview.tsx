@@ -7,10 +7,10 @@ import { formFields } from "~/mocks/formQuestions";
 import styles from "./Preview.module.css";
 
 type PreviewProps = {
-	onClickExit: () => void;
+	onClose: () => void;
 };
 
-export const Preview = ({ onClickExit }: PreviewProps) => {
+export const Preview = ({ onClose }: PreviewProps) => {
 	const [step, setStep] = useState(0);
 
 	const isFirstStep = step === 0;
@@ -45,7 +45,7 @@ export const Preview = ({ onClickExit }: PreviewProps) => {
 				color="dark.7"
 				leftSection={<IconX />}
 				className={styles.exitButton}
-				onClick={onClickExit}
+				onClick={onClose}
 			>
 				Exit preview
 			</Button>

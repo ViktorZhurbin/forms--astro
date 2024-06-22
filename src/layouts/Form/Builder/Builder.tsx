@@ -4,11 +4,7 @@ import { Main } from "./Main/Main";
 import { NavQuestions } from "./Navbar/NavQuestions/NavQuestions";
 import { NavThankYou } from "./Navbar/NavThankYou/NavThankYou";
 
-type BuilderProps = {
-	onClickPreview: () => void;
-};
-
-export const Builder = ({ onClickPreview }: BuilderProps) => {
+export const Builder = () => {
 	return (
 		<AppShell
 			padding="md"
@@ -20,7 +16,7 @@ export const Builder = ({ onClickPreview }: BuilderProps) => {
 			}}
 		>
 			<AppShell.Header>
-				<Header onClickPreview={onClickPreview} />
+				<Header />
 			</AppShell.Header>
 
 			<AppShell.Navbar p="sm">

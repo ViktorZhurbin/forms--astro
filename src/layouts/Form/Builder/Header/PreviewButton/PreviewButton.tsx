@@ -1,11 +1,19 @@
 import { Button } from "@mantine/core";
+import { modals } from "@mantine/modals";
 import { IconEye } from "@tabler/icons-react";
+import { Preview } from "~/layouts/Form/Preview/Preview";
 
-type PreviewButtonProps = {
-	onClickPreview: () => void;
-};
+export const PreviewButton = () => {
+	const onClickPreview = () => {
+		modals.open({
+			fullScreen: true,
+			withCloseButton: false,
+			padding: 0,
+			transitionProps: { transition: "fade-down" },
+			children: <Preview onClose={modals.closeAll} />,
+		});
+	};
 
-export const PreviewButton = ({ onClickPreview }: PreviewButtonProps) => {
 	return (
 		<Button
 			variant="default"
