@@ -1,22 +1,17 @@
 import { Button } from "@mantine/core";
 import { IconEye } from "@tabler/icons-react";
-import { SearchParams } from "~/constants/location";
 
-export const PreviewButton = () => {
-	const getOpenPreviewPath = () => {
-		const url = new URL(window.location.href);
-		url.searchParams.set(SearchParams.PREVIEW, "1");
+type PreviewButtonProps = {
+	onClickPreview: () => void;
+};
 
-		return `${url.pathname}${url.search}`;
-	};
-
+export const PreviewButton = ({ onClickPreview }: PreviewButtonProps) => {
 	return (
 		<Button
 			variant="default"
 			color="dark.7"
 			leftSection={<IconEye />}
-			component="a"
-			href={getOpenPreviewPath()}
+			onClick={onClickPreview}
 		>
 			Preview
 		</Button>

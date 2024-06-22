@@ -3,13 +3,14 @@ import { IconX } from "@tabler/icons-react";
 import { useState } from "react";
 import { FormFields } from "~/components/FormFields/FormFields";
 import { NavButtons } from "~/components/NavButtons/NavButtons";
-import type { FormType } from "~/constants/forms";
-import { Routes, SearchParams } from "~/constants/location";
-import { ThemeProvider } from "~/contexts/ThemeProvider/ThemeProvider";
 import { formFields } from "~/mocks/formQuestions";
 import styles from "./Preview.module.css";
 
-export const Preview = ({ formId }: { formId?: FormType["id"] }) => {
+type PreviewProps = {
+	onClickExit: () => void;
+};
+
+export const Preview = ({ onClickExit }: PreviewProps) => {
 	const [step, setStep] = useState(0);
 
 	const isFirstStep = step === 0;
@@ -31,45 +32,31 @@ export const Preview = ({ formId }: { formId?: FormType["id"] }) => {
 		console.log("submit");
 	};
 
-	const getExitPreviewPath = () => {
-		if (formId) {
-			const url = new URL(window.location.href);
-			url.searchParams.delete(SearchParams.PREVIEW);
-
-			return `${url.pathname}${url.search}`;
-		}
-
-		return Routes.ROOT;
-	};
-
 	return (
-		<ThemeProvider>
-			<div className={styles.root}>
-				<FormFields
-					step={step}
-					questions={formFields}
-					onSubmit={handleSubmit}
-					goToNextStep={goToNextStep}
-				/>
+		<div className={styles.root}>
+			<FormFields
+				step={step}
+				questions={formFields}
+				onSubmit={handleSubmit}
+				goToNextStep={goToNextStep}
+			/>
 
-				<Button
-					color="dark.7"
-					leftSection={<IconX />}
-					className={styles.exitButton}
-					component="a"
-					href={getExitPreviewPath()}
-				>
-					Exit preview
-				</Button>
+			<Button
+				color="dark.7"
+				leftSection={<IconX />}
+				className={styles.exitButton}
+				onClick={onClickExit}
+			>
+				Exit preview
+			</Button>
 
-				<NavButtons
-					className={styles.navigation}
-					isPrevDisabled={isFirstStep}
-					isNextDisabled={isLastStep}
-					onClickPrev={goToPreviousStep}
-					onClickNext={goToNextStep}
-				/>
-			</div>
-		</ThemeProvider>
+			<NavButtons
+				className={styles.navigation}
+				isPrevDisabled={isFirstStep}
+				isNextDisabled={isLastStep}
+				onClickPrev={goToPreviousStep}
+				onClickNext={goToNextStep}
+			/>
+		</div>
 	);
 };
