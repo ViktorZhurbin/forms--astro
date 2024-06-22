@@ -2,7 +2,7 @@ import {
 	QuestionGroups,
 	type QuestionType,
 	QuestionTypes,
-} from "../constants/questions";
+} from "~/constants/questions";
 
 export const formFields: QuestionType[] = [
 	{

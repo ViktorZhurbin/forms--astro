@@ -1,5 +1,5 @@
 import { Stack, Text } from "@mantine/core";
-import { formFields } from "../../../../mocks/formQuestions";
+import { formFields } from "~/mocks/formQuestions";
 import { NavbarQuestion } from "./NavbarQuestion/NavbarQuestion";
 
 export const NavQuestions = () => {

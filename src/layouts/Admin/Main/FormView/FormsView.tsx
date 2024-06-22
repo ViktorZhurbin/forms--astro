@@ -1,4 +1,4 @@
-import { type FormType, FormsLayout } from "../../../../constants/forms";
+import { type FormType, FormsLayout } from "~/constants/forms";
 import { GridView } from "./GridView/GridView";
 import { ListView } from "./ListView/ListView";
 

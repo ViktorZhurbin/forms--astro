@@ -1,8 +1,8 @@
 import { Button, Group, Text } from "@mantine/core";
 import { IconBan } from "@tabler/icons-react";
-import { SearchParams } from "../../../../../constants/location";
-import type { QuestionBaseType } from "../../../../../constants/questions";
-import { clx } from "../../../../../utils/classNames";
+import { SearchParams } from "~/constants/location";
+import type { QuestionBaseType } from "~/constants/questions";
+import { clx } from "~/utils/classNames";
 import { useSelectedBlockId } from "../../../hooks/useSelectedBlockId";
 import styles from "./NavbarQuestion.module.css";
 

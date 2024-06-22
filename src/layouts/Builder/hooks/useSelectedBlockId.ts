@@ -1,6 +1,6 @@
 import { useEffect, useMemo } from "react";
-import { SearchParams } from "../../../constants/location";
-import { formFields } from "../../../mocks/formQuestions";
+import { SearchParams } from "~/constants/location";
+import { formFields } from "~/mocks/formQuestions";
 import type { SelectedBlockId } from "../types";
 import { useSearch } from "wouter";
 

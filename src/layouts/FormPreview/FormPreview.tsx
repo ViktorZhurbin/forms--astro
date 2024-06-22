@@ -1,13 +1,13 @@
-import { FormFields } from "@/components/FormFields/FormFields";
-import { NavButtons } from "@/components/NavButtons/NavButtons";
-import type { FormType } from "@/constants/forms";
-import { SearchParams } from "@/constants/location";
-import { formFields } from "@/mocks/formQuestions";
+import { FormFields } from "~/components/FormFields/FormFields";
+import { NavButtons } from "~/components/NavButtons/NavButtons";
+import type { FormType } from "~/constants/forms";
+import { SearchParams } from "~/constants/location";
+import { formFields } from "~/mocks/formQuestions";
 import { Button } from "@mantine/core";
 import { IconX } from "@tabler/icons-react";
 import { useState } from "react";
 import styles from "./FormPreview.module.css";
-import { ThemeProvider } from "@/contexts/ThemeProvider/ThemeProvider";
+import { ThemeProvider } from "~/contexts/ThemeProvider/ThemeProvider";
 
 export const FormPreview = ({ formId }: { formId?: FormType["id"] }) => {
 	const [step, setStep] = useState(0);

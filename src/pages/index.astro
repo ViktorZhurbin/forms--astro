@@ -1,9 +1,9 @@
 ---
 import "@mantine/core/styles.css";
-import "@/styles/main.css";
-import { Admin } from '@/layouts/Admin/Admin';
-import type { FormType } from "@/constants/forms";
-import CommonHead from "@/components/CommonHead/CommonHead.astro";
+import "~/styles/main.css";
+import { Admin } from '~/layouts/Admin/Admin';
+import type { FormType } from "~/constants/forms";
+import CommonHead from "~/components/CommonHead/CommonHead.astro";
 
 const responseJson = await fetch(new URL("/api/forms", Astro.url));
 const response = await responseJson.json() as { data: FormType[]};
