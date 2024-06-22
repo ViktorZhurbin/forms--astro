@@ -11,7 +11,7 @@ export const Builder = () => {
 			header={{ height: 60 }}
 			navbar={{
 				width: 200,
-				breakpoint: "xs",
+				breakpoint: 0,
 				collapsed: { desktop: false, mobile: false },
 			}}
 		>

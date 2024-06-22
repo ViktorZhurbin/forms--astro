@@ -1,19 +1,20 @@
-import { Group, TextInput } from "@mantine/core";
+import { TextInput } from "@mantine/core";
+import styles from "./Header.module.css";
 import { HomeButton } from "./HomeButton/HomeButton";
 import { PreviewButton } from "./PreviewButton/PreviewButton";
 import { PublishButton } from "./PublishButton/PublishButton";
 
 export const Header = () => {
 	return (
-		<Group h="100%" px="md" justify="space-between">
-			<Group>
+		<div className={styles.root}>
+			<div className={styles.wrapper}>
 				<HomeButton />
 				<TextInput pointer defaultValue="My form" size="sm" />
-			</Group>
-			<Group>
+			</div>
+			<div className={styles.wrapper}>
 				<PreviewButton />
 				<PublishButton />
-			</Group>
-		</Group>
+			</div>
+		</div>
 	);
 };

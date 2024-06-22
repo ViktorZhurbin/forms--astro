@@ -1,6 +1,8 @@
-import { Stack, Text } from "@mantine/core";
+import { Text } from "@mantine/core";
 import { formFields } from "~/mocks/formQuestions";
 import { NavbarQuestion } from "./NavbarQuestion/NavbarQuestion";
+
+import styles from "./NavQuestions.module.css";
 
 export const NavQuestions = () => {
 	return (
@@ -8,7 +10,7 @@ export const NavQuestions = () => {
 			<Text c="dimmed" size="sm" mb={8} p="0 12px">
 				Questions
 			</Text>
-			<Stack gap={4}>
+			<div className={styles.questionsList}>
 				{formFields.map(({ id, group, title }, index) => (
 					<NavbarQuestion
 						key={id}
@@ -18,7 +20,7 @@ export const NavQuestions = () => {
 						title={title}
 					/>
 				))}
-			</Stack>
+			</div>
 		</>
 	);
 };
