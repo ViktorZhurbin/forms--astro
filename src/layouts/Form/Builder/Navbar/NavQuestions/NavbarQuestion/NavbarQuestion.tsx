@@ -20,24 +20,23 @@ export const NavbarQuestion = ({
 }: NavbarQuestionProps) => {
 	const selectedBlockId = useSelectedBlockId();
 
-	const handleClick = () => {
-		const urlSearchParams = new URLSearchParams(window.location.search);
-		urlSearchParams.set(SearchParams.BLOCK_ID, id);
+	const handleSelect = () => {
+		const url = new URL(window.location.href);
+		url.searchParams.set(SearchParams.BLOCK_ID, id);
 
-		navigate(`?${urlSearchParams.toString()}`);
+		navigate(url);
 	};
 
-	const label = <Label group={group} order={order} title={title} />;
-
 	const isSelected = id === selectedBlockId;
+
 	return (
 		<Button
 			variant={isSelected ? "light" : "subtle"}
 			justify="start"
 			className={styles.button}
-			onClick={handleClick}
+			onClick={handleSelect}
 		>
-			{label}
+			<Label group={group} order={order} title={title} />
 		</Button>
 	);
 };
