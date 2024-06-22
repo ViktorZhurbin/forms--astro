@@ -3,6 +3,12 @@ name = "my-astro-app"
 compatibility_date = "2024-06-14"
 pages_build_output_dir = "./dist"
 
+[[d1_databases]]
+binding = "DB" # i.e. available in your Worker on env.DB
+database_name = "forms__western-europe"
+database_id = "02cacb61-f13d-47bc-a92a-0aa57f42d3f9"
+preview_database_id = "DB"
+
 # Automatically place your workloads in an optimal location to minimize latency.
 # If you are running back-end logic in a Pages Function, running it closer to your back-end infrastructure
 # rather than the end user may result in better performance.

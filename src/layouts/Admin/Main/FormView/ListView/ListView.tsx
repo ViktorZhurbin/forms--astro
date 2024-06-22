@@ -6,7 +6,7 @@ export const ListView = ({ forms, getHref }: FormViewProps) => {
 		<Stack gap={6}>
 			{forms.map(({ id, name }) => (
 				<Button
-					key={name}
+					key={id}
 					size="md"
 					variant="default"
 					justify="start"

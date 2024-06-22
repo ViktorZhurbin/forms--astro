@@ -1,10 +1,13 @@
 import type { APIRoute } from "astro";
+import type { FormType } from "~/constants/forms";
 
-export const GET: APIRoute = async () => {
+export const GET: APIRoute = async (context) => {
+	const runtime = context.locals.runtime;
+
+	const ps = runtime?.env?.DB?.prepare("SELECT * FROM Forms");
+	const data = await ps.all();
+
 	return Response.json({
-		data: [
-			{ id: "1", name: "Form 1", responseCount: 0 },
-			{ id: "2", name: "My Other Form", responseCount: 10000 },
-		],
+		data: data.results as FormType[],
 	});
 };

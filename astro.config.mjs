@@ -13,8 +13,18 @@ export default defineConfig({
 		service: passthroughImageService(),
 	},
 	adapter: cloudflare({
+		// imageService: "cloudflare",
 		platformProxy: {
 			enabled: true,
+		},
+		runtime: {
+			mode: "local",
+			type: "pages",
+			bindings: {
+				DB: {
+					type: "d1",
+				},
+			},
 		},
 	}),
 });

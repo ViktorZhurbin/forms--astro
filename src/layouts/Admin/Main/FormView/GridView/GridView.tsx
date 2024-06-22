@@ -6,7 +6,7 @@ export const GridView = ({ forms, getHref }: FormViewProps) => {
 		<Group gap={4}>
 			{forms.map(({ id, name, responseCount }) => (
 				<Button
-					key={name}
+					key={id}
 					size="md"
 					variant="default"
 					justify="start"
